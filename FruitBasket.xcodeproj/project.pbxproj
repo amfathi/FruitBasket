@@ -8,12 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		76133C1925040726005C90B2 /* FruitBasket.h in Headers */ = {isa = PBXBuildFile; fileRef = 76133C1725040726005C90B2 /* FruitBasket.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		76133C202504073A005C90B2 /* Fruit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76133C1F2504073A005C90B2 /* Fruit.swift */; };
+		76133C222504074D005C90B2 /* Basket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76133C212504074D005C90B2 /* Basket.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		76133C1425040726005C90B2 /* FruitBasket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FruitBasket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		76133C1725040726005C90B2 /* FruitBasket.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FruitBasket.h; sourceTree = "<group>"; };
 		76133C1825040726005C90B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		76133C1F2504073A005C90B2 /* Fruit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fruit.swift; sourceTree = "<group>"; };
+		76133C212504074D005C90B2 /* Basket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Basket.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +52,8 @@
 			children = (
 				76133C1725040726005C90B2 /* FruitBasket.h */,
 				76133C1825040726005C90B2 /* Info.plist */,
+				76133C1F2504073A005C90B2 /* Fruit.swift */,
+				76133C212504074D005C90B2 /* Basket.swift */,
 			);
 			path = FruitBasket;
 			sourceTree = "<group>";
@@ -95,6 +101,7 @@
 				TargetAttributes = {
 					76133C1325040726005C90B2 = {
 						CreatedOnToolsVersion = 11.4.1;
+						LastSwiftMigration = 1140;
 					};
 				};
 			};
@@ -131,6 +138,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76133C202504073A005C90B2 /* Fruit.swift in Sources */,
+				76133C222504074D005C90B2 /* Basket.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,6 +269,8 @@
 		76133C1D25040726005C90B2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -275,6 +286,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.Fathi.FruitBasket;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -283,6 +296,8 @@
 		76133C1E25040726005C90B2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -298,6 +313,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.Fathi.FruitBasket;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
