@@ -1,0 +1,32 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.2.2 (swiftlang-1103.0.32.6 clang-1103.0.32.51)
+// swift-module-flags: -target x86_64-apple-ios13.4-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name FruitBasket
+import Foundation
+@_exported import FruitBasket
+import Swift
+public enum Fruit : Swift.String {
+  case apple
+  case banana
+  case orange
+  public typealias RawValue = Swift.String
+  public init?(rawValue: Swift.String)
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public class Basket {
+  public var count: Swift.Int {
+    get
+  }
+  public init(_ capacity: Swift.Int)
+  public func add(_ fruit: FruitBasket.Fruit)
+  @objc deinit
+}
+extension Basket : Swift.CustomStringConvertible {
+  public var description: Swift.String {
+    get
+  }
+}
+extension FruitBasket.Fruit : Swift.Equatable {}
+extension FruitBasket.Fruit : Swift.Hashable {}
+extension FruitBasket.Fruit : Swift.RawRepresentable {}

@@ -6,11 +6,36 @@
 	objectVersion = 50;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		76133C2325040951005C90B2 /* AggregatedFramework */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 76133C2425040951005C90B2 /* Build configuration list for PBXAggregateTarget "AggregatedFramework" */;
+			buildPhases = (
+				76133C2C25040DCC005C90B2 /* Create Aggregated Framework */,
+			);
+			dependencies = (
+				76133C2B25040D60005C90B2 /* PBXTargetDependency */,
+			);
+			name = AggregatedFramework;
+			productName = AggregatedFramework;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		76133C1925040726005C90B2 /* FruitBasket.h in Headers */ = {isa = PBXBuildFile; fileRef = 76133C1725040726005C90B2 /* FruitBasket.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		76133C202504073A005C90B2 /* Fruit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76133C1F2504073A005C90B2 /* Fruit.swift */; };
 		76133C222504074D005C90B2 /* Basket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76133C212504074D005C90B2 /* Basket.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		76133C2A25040D60005C90B2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 76133C0B25040726005C90B2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 76133C1325040726005C90B2;
+			remoteInfo = FruitBasket;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		76133C1425040726005C90B2 /* FruitBasket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FruitBasket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -103,6 +128,9 @@
 						CreatedOnToolsVersion = 11.4.1;
 						LastSwiftMigration = 1140;
 					};
+					76133C2325040951005C90B2 = {
+						CreatedOnToolsVersion = 11.4.1;
+					};
 				};
 			};
 			buildConfigurationList = 76133C0E25040726005C90B2 /* Build configuration list for PBXProject "FruitBasket" */;
@@ -119,6 +147,7 @@
 			projectRoot = "";
 			targets = (
 				76133C1325040726005C90B2 /* FruitBasket */,
+				76133C2325040951005C90B2 /* AggregatedFramework */,
 			);
 		};
 /* End PBXProject section */
@@ -133,6 +162,27 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		76133C2C25040DCC005C90B2 /* Create Aggregated Framework */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Create Aggregated Framework";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "IOS_SCHEME_NAME=\"YOUR_SCHEME_NAME_FOR_IOS\"\nMACOS_SCHEME_NAME=\"YOUR_SCHEME_NAME_FOR_MACOS\"\nFRAMEWORK_NAME=\"FruitBasket\"\n\n\nSIMULATOR_ARCHIVE_PATH=\"${BUILD_DIR}/${CONFIGURATION}/${FRAMEWORK_NAME}-iphonesimulator.xcarchive\"\nDEVICE_ARCHIVE_PATH=\"${BUILD_DIR}/${CONFIGURATION}/${FRAMEWORK_NAME}-iphoneos.xcarchive\"\nMACOS_ARCHIVE_PATH=\"${BUILD_DIR}/${CONFIGURATION}/${FRAMEWORK_NAME}-macos.xcarchive\"\n\n\nOUTPUT_DIC=\"./xcframework/\"\n\n\n# Simulator xcarchieve\nxcodebuild archive \\\n  -scheme ${IOS_SCHEME_NAME} \\\n  -archivePath ${SIMULATOR_ARCHIVE_PATH} \\\n  -sdk iphonesimulator \\\n  SKIP_INSTALL=NO\n\n\n# Device xcarchieve\nxcodebuild archive \\\n  -scheme ${IOS_SCHEME_NAME} \\\n  -archivePath ${DEVICE_ARCHIVE_PATH} \\\n  -sdk iphoneos \\\n  SKIP_INSTALL=NO\n  \n# MacOS xcarchieve\nxcodebuild archive \\\n  -scheme ${MACOS_SCHEME_NAME} \\\n  -archivePath ${MACOS_ARCHIVE_PATH} \\\n  SKIP_INSTALL=NO\n\n\n# Clean up old output directory\nrm -rf \"${OUTPUT_DIC}\"\n# Create xcframwork combine of all frameworks\nxcodebuild -create-xcframework \\\n  -framework ${SIMULATOR_ARCHIVE_PATH}/Products/Library/Frameworks/${FRAMEWORK_NAME}.framework \\\n  -framework ${DEVICE_ARCHIVE_PATH}/Products/Library/Frameworks/${FRAMEWORK_NAME}.framework \\\n  -framework ${MACOS_ARCHIVE_PATH}/Products/Library/Frameworks/${FRAMEWORK_NAME}.framework \\\n  -output ${OUTPUT_DIC}/${FRAMEWORK_NAME}.xcframework\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		76133C1025040726005C90B2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -144,6 +194,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		76133C2B25040D60005C90B2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 76133C1325040726005C90B2 /* FruitBasket */;
+			targetProxy = 76133C2A25040D60005C90B2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		76133C1A25040726005C90B2 /* Debug */ = {
@@ -319,6 +377,22 @@
 			};
 			name = Release;
 		};
+		76133C2525040951005C90B2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		76133C2625040951005C90B2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -336,6 +410,15 @@
 			buildConfigurations = (
 				76133C1D25040726005C90B2 /* Debug */,
 				76133C1E25040726005C90B2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		76133C2425040951005C90B2 /* Build configuration list for PBXAggregateTarget "AggregatedFramework" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				76133C2525040951005C90B2 /* Debug */,
+				76133C2625040951005C90B2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
